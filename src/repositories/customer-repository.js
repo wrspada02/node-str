@@ -8,10 +8,15 @@ exports.create = async (data) => {
   await customer.save();
 }
 
-exports.get = async () => {
-  const res = await Customer.find({
-    active: true
-  }, 'title price slug');
+exports.authenticate = async(data) => {
+  const res = await Customer.findOne({
+      mail: data.mail,
+      password: data.password
+  });
   return res;
 }
 
+exports.getById = async(id) => {
+  const res = await Customer.findById(id);
+  return res;
+}
