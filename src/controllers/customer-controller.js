@@ -98,7 +98,7 @@ exports.refreshToken = async(req, res, next) => {
       });
 
       res.status(201).send({
-          token: token,
+          token: tokenData,
           data: {
               mail: customer.mail,
               name: customer.name
